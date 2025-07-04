@@ -1,1032 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Envisage Companies LLC | Administrative Support Specialists</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #1a3a6d;
-            --secondary: #2c5282;
-            --accent: #e9b44c;
-            --light: #f8fafc;
-            --dark: #0f172a;
-            --gray: #94a3b8;
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            --radius: 8px;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f5f7fa;
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            padding: 1.2rem 0;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1.8rem;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            color: var(--accent);
-            margin-right: 10px;
-            font-size: 2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            font-size: 1.1rem;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--accent);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 8rem 0 4rem;
-            position: relative;
-            background: linear-gradient(135deg, rgba(26, 58, 109, 0.9) 0%, rgba(44, 82, 130, 0.9) 100%), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .highlight {
-            color: var(--accent);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.9rem 2.5rem;
-            background: var(--accent);
-            color: var(--dark);
-            border-radius: var(--radius);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: 2px solid var(--accent);
-            box-shadow: 0 5px 15px rgba(233, 180, 76, 0.3);
-            margin: 0.5rem;
-        }
-
-        .btn:hover {
-            background: transparent;
-            color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(233, 180, 76, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border-color: white;
-        }
-
-        .btn-outline:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        /* Services Section */
-        section {
-            padding: 6rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .section-title h2 {
-            font-size: 2.8rem;
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary);
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-            border-top: 4px solid var(--accent);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-icon {
-            font-size: 3.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        /* Industries Section */
-        .industries {
-            background: linear-gradient(to bottom, #f0f4f9, #e4ebf5);
-        }
-
-        .industry-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .industry-card {
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .industry-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .industry-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .industry-content {
-            padding: 2rem;
-        }
-
-        .industry-content h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        /* Process Section */
-        .process-steps {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-        }
-
-        .step {
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: var(--accent);
-            color: var(--dark);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 1.5rem;
-        }
-
-        .step:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            top: 60px;
-            right: -30px;
-            width: 60px;
-            height: 2px;
-            background: var(--accent);
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background: linear-gradient(to bottom, #e4ebf5, #f0f4f9);
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 5rem;
-            color: rgba(26, 58, 109, 0.1);
-            font-family: serif;
-            line-height: 1;
-        }
-
-        .testimonial-content {
-            margin-top: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .client-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .client-info img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--primary);
-            color: white;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .contact-info {
-            padding-right: 2rem;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-details {
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-right: 1rem;
-            min-width: 40px;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        .contact-form h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.9rem 1.2rem;
-            border: 1px solid #cbd5e1;
-            border-radius: var(--radius);
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(233, 180, 76, 0.2);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-col h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--accent);
-        }
-
-        .footer-col p {
-            color: #cbd5e1;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #94a3b8;
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.appear {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 3rem;
-            }
-            .section-title h2 {
-                font-size: 2.3rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: white;
-                flex-direction: column;
-                align-items: center;
-                padding-top: 3rem;
-                transition: var(--transition);
-                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-            }
-            .nav-links.active {
-                left: 0;
-            }
-            .nav-links li {
-                margin: 1.5rem 0;
-            }
-            h1 {
-                font-size: 2.5rem;
-            }
-            .step:not(:last-child)::after {
-                display: none;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero {
-                padding-top: 10rem;
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .btn {
-                display: block;
-                margin: 1rem auto;
-                width: 80%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Envisage Companies LLC | Administrative Support Specialists</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet"/>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <i class="fas fa-building"></i> Envisage Companies
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#industries">Industries</a></li>
-                    <li><a href="#process">Process</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Professional <span class="highlight">Administrative Support</span> for Your Business</h1>
-                <p>Envisage Companies LLC provides premium administrative solutions for Comercial Contractors, C-suite Executives, and Personal Injury Law Firms. Let us handle the details so you can focus on growth.</p>
-                <div>
-                    <a href="#services" class="btn">Our Services</a>
-                    <a href="#contact" class="btn btn-outline">Get in Touch</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-<section id="services" class="services">
-  <div class="container">
-    <div class="section-title">
-      <h2>Our Services</h2>
-    </div>
-    <div class="services-grid">
-
-      <div class="service-card fade-in">
-        <div class="service-icon">
-          <i class="fas fa-file-medical-alt"></i>
-        </div>
-        <h3>Personal Injury Support</h3>
-        <p>Medical chronologies, demand letter preparation, medical billing and lien reductions, balance verifications, and client closing statements—each executed with legal precision and settlement-ready clarity. For streamlined, on-demand demand letter services, visit our trusted affiliate at <a href="https://www.claimwrit.com" target="_blank">ClaimWrit.com</a>.
-</p>
-      </div>
-
-      <div class="service-card fade-in">
-        <div class="service-icon">
-          <i class="fas fa-hard-hat"></i>
-        </div>
-        <h3>Construction Administration</h3>
-        <p>Comprehensive support across preconstruction planning, vendor and subcontractor coordination, document control, permit tracking, insurance compliance, and project closeout—delivered with precision across commercial construction and land development environments.</p>
-      </div>
-
-      <div class="service-card fade-in">
-        <div class="service-icon">
-          <i class="fas fa-user-tie"></i>
-        </div>
-        <h3>Executive-Level Support</h3>
-        <p>Discreet, strategic administrative support for senior leadership—ranging from complex calendar and travel management to cross-departmental reporting, executive correspondence, and coordination across high-profile operations. Trusted by both privately held firms and publicly traded companies such as Xerox for responsive, high-stakes support.</p>
-      </div>
-
-      <div class="service-card fade-in">
-        <div class="service-icon">
-          <i class="fas fa-tasks"></i>
-        </div>
-        <h3>Project Coordination</h3>
-        <p>End-to-end coordination across legal, construction, and executive projects—including milestone scheduling, cost tracking, contract implementation, documentation flow, and cross-functional communication. Structured for accountability, delivered with clarity.</p>
-      </div>
-
-      <div class="service-card fade-in">
-        <div class="service-icon">
-          <i class="fas fa-comments-dollar"></i>
-        </div>
-        <h3>Client Communication</h3>
-        <p>Professional email and phone correspondence to maintain client relationships—prompt, polished, and always on-brand.</p>
-      </div>
-
-      <div class="service-card fade-in">
-        <div class="service-icon">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <h3>Reporting & Analysis</h3>
-        <p>Custom reporting tools, status summaries, and operational insights that support confident, informed decision-making across departments.</p>
-      </div>
-
-    </div>
+  <!-- Logo -->
+  <div class="logo-container">
+    <img
+      src="images/envisage-logo.jpg"
+      alt="Envisage Spiral Logo"
+      class="logo-img"
+    />
   </div>
-</section> 
-                
-    <!-- Industries Section -->
-    <section id="industries" class="industries">
-        <div class="container">
-            <div class="section-title">
-                <h2>Industries We Serve</h2>
-            </div>
-            <div class="industry-cards">
-                <div class="industry-card fade-in">
-                    <div class="industry-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-                    <div class="industry-content">
-                        <h3>Construction Companies</h3>
-                        <p>Specialized administrative support for construction firms and project managers, streamlining vendor selection and insurance verification to contract execution. Our team ensures accurate project scheduling, cost management, and timely billing while maintaining meticulous documentation and communication with architects and field teams. With a focus on organization, compliance, and accountability, we help projects stay on schedule, within budget, and fully documented every step of the way.</p>
-                    </div>
-                </div>
-                
-                <div class="industry-card fade-in">
-                    <div class="industry-img" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-                    <div class="industry-content">
-                        <h3>C-Suite Executives</h3>
-                        <p>We deliver executive-level support to CEOs, CFOs, and other C-suite professionals by managing demanding schedules, confidential communications, and high-stakes meetings. Our services include coordinating cross-functional collaboration, preparing board-ready materials, arranging complex travel logistics, and ensuring follow-through on strategic priorities. Through meticulous planning, discretion, and proactive communication, we empower executive leaders to stay organized, informed, and focused.</p>
-                    </div>
-                </div>
-                
-                <div class="industry-card fade-in">
-                    <div class="industry-img" style="background-image: url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
-                    <div class="industry-content">
-                        <h3>Law Firms</h3>
-                        <p>Specialized legal administrative services that encompass drafting clear, persuasive demand letters that present clients’ medical narratives and support fair recovery. Once a case is resolved, we prepare detailed client balance calculations, negotiate medical and lien reductions, and generate final closing statements—ensuring accuracy, compliance, and transparency throughout the settlement process.
-.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Process Section -->
-<section id="process" class="process">
+  <!-- Header / Nav -->
+  <header>
     <div class="container">
-        <div class="section-title">
-            <h2>Our Process</h2>
-        </div>
-        <div class="process-steps">
-            <div class="step fade-in">
-                <div class="step-number">1</div>
-                <h3>Consultation</h3>
-                <p>We begin every engagement with a thoughtful, in-depth consultation designed to uncover your unique administrative and operational needs. Through a structured needs assessment, we identify pain points, clarify project goals, and evaluate the support areas where we can add the most value.</p>
-            </div>
-            
-            <div class="step fade-in">
-                <div class="step-number">2</div>
-                <h3>Customization</h3>
-                <p>We develop a tailored support plan to address your unique business challenges, aligning our services with your specific goals, workflow preferences, and operational style for strategic, results-driven collaboration.</p>
-            </div>
-            
-            <div class="step fade-in">
-                <div class="step-number">3</div>
-                <h3>Implementation</h3>
-                <p>Our solutions are built around how you work—not just what you need—ensuring seamless integration into your day-to-day operations. We roll out services with precision, clarity, and flexibility to deliver immediate, measurable support.</p>
-            </div>
-            
-            <div class="step fade-in">
-                <div class="step-number">4</div>
-                <h3>Optimization</h3>
-                <p>We continually refine our approach to maximize efficiency and deliver results, adapting strategies as your business evolves to stay aligned with your goals and drive long-term impact.</p>
-            </div>
-        </div>
+      <nav>
+        <a href="#" class="logo">
+          <i class="fas fa-building"></i> Envisage Companies
+        </a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+      </nav>
     </div>
-</section>
+  </header>
 
-            </div>
-<!-- Testimonials Section -->
-<section id="testimonials" class="testimonials">
-  <div class="container">
-    <div class="section-title">
-      <h2>What Clients Say</h2>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <h1>
+        Professional <span class="highlight">Administrative Support</span>
+        for Your Business
+      </h1>
+      <p>
+        Envisage Companies LLC provides premium administrative solutions for
+        Commercial Contractors, C-suite Executives, and Personal Injury Law
+        Firms. Let us handle the details so you can focus on growth.
+      </p>
+      <div>
+        <a href="#services" class="btn">Our Services</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
     </div>
+  </section>
 
-    <div class="testimonial-grid">
-
-      <!-- Testimonial 1 -->
-      <div class="testimonial-card fade-in">
-        <div class="testimonial-content">
-          <p>"Envisage Companies has been an indispensable extension of our legal team since 2020. Their precision, professionalism, and commitment to excellence directly support our settlements."</p>
-        </div>
-        <div class="client-info">
-          <h4>Ian  </h4>
-            <p> Seitel, Esq. </p>
-          <p> Attorney, Seitel Law </p>
-        </div>
-      </div>
-
-      <!-- Testimonial 2 -->
-      <div class="testimonial-card fade-in">
-        <div class="testimonial-content">
-          <p>"Joanna ran point on logistics, executive support, and communication across a $1.8B organization with over 10,000 employees. Her ability to manage complexity while maintaining discretion and proactive insight made her truly irreplaceable."</p>
-        </div>
-        <div class="client-info">
-          <h4>David Bywater</h4>
-          <p>Former COO, Xerox State & Local Solutions</p>
-        </div>
-      </div>
-
-      <!-- Testimonial 3 -->
-      <div class="testimonial-card fade-in">
-        <div class="testimonial-content">
-          <p>"Partnering with Envisage allowed our construction team to exceed expectations—delivering ahead of schedule and under budget. Their leadership in coordinating logistics and multidisciplinary communication was instrumental to our ROI success."</p>
-        </div>
-        <div class="client-info">
-          <h4>Michael Jackson</h4>
-          <p>VP of Construction, The LaPorte Group</p>
-        </div>
-      </div>
-
-    </div> <!-- End .testimonial-grid -->
-
+  <!-- Business Value Diagram -->
+  <div class="diagram-container">
+    <img
+      src="images/derive-measurable-business-value.jpg"
+      alt="Derive Measurable Business Value"
+      class="diagram-img"
+    />
   </div>
-</section>
-    <!-- Contact Section -->
-<section id="contact" class="contact">
-  <div class="container">
-    <div class="section-title">
-      <h2>Contact Us</h2>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+      </div>
+      <div class="services-grid">
+        <!-- ... your service cards here ... -->
+      </div>
     </div>
+  </section>
 
-    <div class="contact-container">
-      <div class="contact-info fade-in">
-        <h3>Get In Touch</h3>
-        <p>
-          We welcome the opportunity to support your organization with tailored administrative solutions.
-          Please contact us to schedule a complimentary consultation and explore how our services can enhance your operations and advance your objectives.
-        </p>
+  <!-- Industries -->
+  <section id="industries" class="industries">
+    <div class="container">
+      <div class="section-title"><h2>Industries We Serve</h2></div>
+      <div class="industry-cards">
+        <!-- ... your industry cards here ... -->
+      </div>
+    </div>
+  </section>
 
-        <br><br><br><br>
+  <!-- Process -->
+  <section id="process">
+    <div class="container">
+      <div class="section-title"><h2>Our Process</h2></div>
+      <div class="process-steps">
+        <!-- ... your steps here ... -->
+      </div>
+    </div>
+  </section>
 
-        <div class="contact-details">
-
-          <!-- Location -->
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-map-marker-alt"></i>
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-title"><h2>What Clients Say</h2></div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>
+              "Envisage Companies has been an indispensable extension of our
+              legal team since 2020. Their precision, professionalism, and
+              commitment to excellence directly support our settlements."
+            </p>
+          </div>
+          <div class="client-info">
+            <div class="client-column">
+              <h4>Ian</h4>
+              <p>Seitel, Esq., P.A.</p>
             </div>
-            <div>
-              <h4>Location</h4>
-              <p>Remotely serving clients nationwide</p>
+            <div class="client-column">
+              <h4>Attorney</h4>
+              <p>Seitel Law Office</p>
             </div>
           </div>
-
-          <!-- Phone -->
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-phone"></i>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>
+              "Joanna ran point on logistics, executive support, and
+              communication across a $1.8B organization with over 10,000
+              employees. Her ability to manage complexity while maintaining
+              discretion and proactive insight made her truly irreplaceable."
+            </p>
+          </div>
+          <div class="client-info">
+            <div class="client-column">
+              <h4>David</h4>
+              <p>Bywater</p>
             </div>
-            <div>
-              <h4>Phone</h4>
-              <p>954-408-1937</p>
+            <div class="client-column">
+              <h4>Former COO</h4>
+              <p>Xerox State & Local Solutions</p>
             </div>
           </div>
-
-          <!-- Email -->
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div>
-              <h4>Email</h4>
-              <p><a href="mailto:info@envisage-companies.com" style="color: white;">info@envisage-companies.com</a></p>
-<p><a href="mailto:info@claimwrit.com" style="color: white;">info@eclaimwrit.com</a></p>
-
-            </div>
-          </div>
-
-          <!-- Websites -->
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-globe"></i>
-            </div>
-            <div>
-              <h4>Websites</h4>
-              <p><a href="https://www.envisage-companies.com" target="_blank" style="color: white;">envisage-companies.com</a></p>
-<p>or</p>
-<p><a href="https://www.claimwrit.com" target="_blank" style="color: white;">claimwrit.com</a></p>
-
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
-  </div>
-          
-    </section>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h3>Envisage Companies LLC</h3>
-                    <p>Providing premium administrative support for Commercial Contractors, C-Suite Executives, and Personal Injury Law Firms.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#industries">Industries</a></li>
-                        <li><a href="#process">Our Process</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Calendar Management</a></li>
-                        <li><a href="#">Document Preparation</a></li>
-                        <li><a href="#">Client Communication</a></li>
-                        <li><a href="#">Project Coordination</a></li>
-                        <li><a href="#">Database Management</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-phone"></i> 954-408-1937</li>
-                        <li><i class="fas fa-envelope"></i> info@envisage-companies.com</li>
-                        <li><i class="fas fa-globe"></i> envisage-companies.com</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2020 Envisage Companies LLC. All Rights Reserved.</p>
-            </div>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title"><h2>Contact Us</h2></div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          <p>
+            We welcome the opportunity to support your organization with
+            tailored administrative solutions.
+          </p>
+          <!-- ... your contact items here ... -->
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Scroll animation for fade-in elements
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOnScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('appear');
-                }
-            });
-        };
-        
-        // Initial check
-        fadeInOnScroll();
-        
-        // Check on scroll
-        window.addEventListener('scroll', fadeInOnScroll);
-        
-        // Form submission
-        const contactForm = document.querySelector('.contact-form form');
-        
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                // Get form values
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-                
-                // Simple validation
-                if (name && email && message) {
-                    alert(`Thank you, ${name}! Your message has been sent. We'll contact you soon.`);
-                    contactForm.reset();
-                } else {
-                    alert('Please fill in all required fields.');
-                }
-            });
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <!-- ... your footer columns here ... -->
+      </div>
+      <div class="copyright">
+        &copy; 2025 Envisage Companies LLC. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document
+          .querySelector(this.getAttribute('href'))
+          .scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Fade-in animation
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const onScroll = () => {
+      fadeEls.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+          el.classList.add('appear');
         }
-    </script>
+      });
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+
 </body>
 </html>
