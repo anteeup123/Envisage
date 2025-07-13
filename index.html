@@ -2,23 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Envisage Companies, LLC | Administrative Support Specialists</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
-    rel="stylesheet"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Envisage Companies, LLC | Administrative Support</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
-  <!-- GLOBAL TOP NAV -->
-  <header class="main-nav">
-    <nav class="container nav-bar">
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="logo-wrap">
+      <img src="images/envisage-logo.jpg" alt="Envisage Spiral Logo" class="logo-img" />
+      <h1 class="site-title">Envisage Companies, LLC</h1>
+    </div>
+    <nav class="main-nav">
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#services">Services</a></li>
@@ -32,380 +28,122 @@
 
   <!-- HERO -->
   <section id="home" class="hero">
-    <div class="container logo-hero">
-      <img
-        src="images/envisage-logo.jpg"
-        alt="Envisage Companies, LLC"
-        class="logo-big"
-      />
-      <h1 class="company-title white">Envisage Companies, LLC</h1>
-    </div>
-
-    <div class="container hero-content">
-      <h2>
-        Professional <span class="highlight">Administrative Support</span>
-        for Your Business
-      </h2>
-      <p>
-        Envisage Companies LLC provides premium administrative solutions for
-        Commercial Contractors, C-suite Executives, and Personal Injury Law
-        Firms. Let us handle the details so you can focus on growth.
-      </p>
-      <div class="hero-buttons">
-        <a href="#services" class="btn">Our Services</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
-      </div>
+    <div class="hero-content container">
+      <h2>Professional <span class="highlight">Administrative Support</span> for Your Business</h2>
+      <p>Envisage Companies LLC provides premium administrative solutions for Commercial Contractors, C-suite Executives, and Personal Injury Law Firms. Let us handle the details so you can focus on growth.</p>
+      <a href="#services" class="btn">Our Services</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>Our Services</h2>
-      </div>
-      <div class="services-grid">
-
-        <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-file-medical-alt"></i></div>
-          <h3>Personal Injury Support</h3>
-          <p>
-            Medical chronologies, demand letter prep, billing & lien reductions,
-            balance verifications, and closing statements—each with legal-tone
-            precision. For on-demand demand letters, visit
-            <a href="https://claimwrit.com" target="_blank">ClaimWrit.com</a>.
-          </p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
-          <h3>Construction Administration</h3>
-          <p>
-            From pre-construction planning to subcontractor/vendor coordination,
-            document control, permit tracking, insurance compliance, and
-            project closeout in commercial construction and land development.
-          </p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-user-tie"></i></div>
-          <h3>Executive-Level Support</h3>
-          <p>
-            Discreet, strategic support to C-suite—complex scheduling, travel,
-            cross-functional reporting, expense reports, and high-stake
-            communications. Trusted by Xerox and other enterprise clients.
-          </p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-tasks"></i></div>
-          <h3>Project Coordination</h3>
-          <p>
-            End-to-end coordination across legal, construction, and executive
-            projects—milestone scheduling, cost tracking, contracts,
-            documentation flow, and cross-team communication.
-          </p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-comments-dollar"></i></div>
-          <h3>Client Communication</h3>
-          <p>
-            Professional email triage & phone correspondence to maintain client
-            relationships—prompt, precise, and always on-brand.
-          </p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-          <h3>Reporting & Analysis</h3>
-          <p>
-            Custom reports, status summaries, and insights to support
-            confident, data-driven decision-making.
-          </p>
-        </div>
-
-      </div>
+  <section id="services" class="services container fade-in">
+    <div class="section-title">
+      <h2>Our Services</h2>
+    </div>
+    <div class="services-grid">
+      <!-- repeat .service-card as needed -->
     </div>
   </section>
 
   <!-- INDUSTRIES -->
-  <section id="industries" class="industries">
+  <section id="industries" class="industries fade-in">
     <div class="container">
-      <div class="section-title"><h2>Industries We Serve</h2></div>
+      <div class="section-title">
+        <h2>Industries We Serve</h2>
+      </div>
       <div class="industry-cards">
-
-        <div class="industry-card fade-in">
-          <div class="industry-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd');"></div>
-          <div class="industry-content">
-            <h3>Construction Companies</h3>
-            <p>
-              Streamlined vendor selection, insurance verification,
-              project scheduling, cost management, billing and detailed
-              documentation in commercial construction.
-            </p>
-          </div>
-        </div>
-
-        <div class="industry-card fade-in">
-          <div class="industry-img" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df');"></div>
-          <div class="industry-content">
-            <h3>C-Suite Executives</h3>
-            <p>
-              Managing demanding schedules, confidential communications,
-              board materials, and complex travel logistics for CEOs, CFOs,
-              and senior leaders.
-            </p>
-          </div>
-        </div>
-
-        <div class="industry-card fade-in">
-          <div class="industry-img" style="background-image: url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb');"></div>
-          <div class="industry-content">
-            <h3>Law Firms</h3>
-            <p>
-              Drafting persuasive demand letters, negotiating medical/lien
-              reductions, and preparing final closing statements with
-              compliance and transparency.
-            </p>
-          </div>
-        </div>
-
+        <!-- .industry-card blocks -->
       </div>
     </div>
   </section>
 
   <!-- PROCESS -->
-  <section id="process" class="process">
+  <section id="process" class="process fade-in">
     <div class="container">
-      <div class="section-title"><h2>Our Process</h2></div>
-      <div class="process-steps fade-in">
-
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Consultation</h3>
-          <p>
-            In-depth needs assessment to uncover pain points, clarify goals,
-            and identify where we add the most value.
-          </p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Customization</h3>
-          <p>
-            Tailored support plan aligned with your workflow preferences
-            and strategic objectives.
-          </p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Implementation</h3>
-          <p>
-            Seamless service roll-out integrated into day-to-day
-            operations for immediate, measurable impact.
-          </p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">4</div>
-          <h3>Optimization</h3>
-          <p>
-            Ongoing refinement to maximize efficiency and long-term results.
-          </p>
-        </div>
-
+      <div class="section-title">
+        <h2>Our Process</h2>
+      </div>
+      <div class="process-steps">
+        <!-- .step blocks -->
       </div>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
-  <section id="testimonials" class="testimonials">
+  <section id="testimonials" class="testimonials fade-in">
     <div class="container">
-      <div class="section-title"><h2>What Clients Say</h2></div>
+      <div class="section-title">
+        <h2>What Clients Say</h2>
+      </div>
       <div class="testimonial-grid">
-
-        <div class="testimonial-card fade-in">
-          <div class="testimonial-content">
-            <p>
-              "Envisage Companies has been an indispensable extension of our
-              legal team since 2020. Their precision, professionalism, and
-              commitment to excellence directly support our settlements."
-            </p>
-          </div>
+        <!-- Card 1 -->
+        <div class="testimonial-card">
+          <p class="testimonial-content">"Envisage Companies has been an indispensable extension of our legal team since 2020. Their precision, professionalism, and commitment to excellence directly support our settlements."</p>
           <div class="client-info">
-            <h4>Ian Seitel, Esq.</h4>
-            <p>Attorney, Seitel Law Office</p>
+            <div class="client-details">
+              <strong>Ian</strong><br />
+              Seitel, Esq., P.A.
+            </div>
+            <div class="client-role">
+              Attorney<br />
+              Seitel Law Office
+            </div>
           </div>
         </div>
-
-        <div class="testimonial-card fade-in">
-          <div class="testimonial-content">
-            <p>
-              "Joanna ran point on logistics, executive support, and
-              communication across a $1.8B organization with over 10,000
-              employees. Her ability to manage complexity while maintaining
-              discretion made her truly irreplaceable."
-            </p>
-          </div>
+        <!-- Card 2 -->
+        <div class="testimonial-card">
+          <p class="testimonial-content">"Joanna ran point on logistics, executive support, and communication across a $1.8B organization with over 10,000 employees. Her ability to manage complexity while maintaining discretion and proactive insight made her truly irreplaceable."</p>
           <div class="client-info">
-            <h4>David Bywater</h4>
-            <p>Former COO, Xerox State & Local Solutions</p>
+            <div class="client-details">
+              <strong>David Bywater</strong>
+            </div>
+            <div class="client-role">
+              Former COO, Xerox State & Local Solutions
+            </div>
           </div>
         </div>
-
-        <div class="testimonial-card fade-in">
-          <div class="testimonial-content">
-            <p>
-              "Partnering with Envisage allowed our construction team to
-              exceed expectations—delivering ahead of schedule and under
-              budget. Their coordination was instrumental to our ROI success."
-            </p>
-          </div>
-          <div class="client-info">
-            <h4>Michael Jackson</h4>
-            <p>VP of Construction, The LaPorte Group</p>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="contact">
+  <section id="contact" class="contact fade-in">
     <div class="container contact-container">
-
-      <div class="contact-info fade-in">
-        <h3>Get In Touch</h3>
-        <p>
-          We welcome the opportunity to support your organization with
-          tailored administrative solutions. Please schedule a complimentary
-          consultation to explore how we can advance your objectives.
-        </p>
-
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
         <div class="contact-details">
-
           <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div>
-              <h4>Location</h4>
-              <p>Remotely serving clients nationwide from Fort Lauderdale, FL</p>
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
             </div>
-          </div>
-
-          <div class="map-embed">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3589.6849!2d-80.1373177!3d26.1224389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9011b1b1b1b1b%3A0x1b1b1b1b1b1b1b1b!2sFort+Lauderdale%2C+FL!5e0!3m2!1sen!2sus!4v1626207483726"
-              width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-phone"></i></div>
             <div>
               <h4>Phone</h4>
-              <p>954-408-1937</p>
+              <p><a href="tel:+1234567890">(123) 456-7890</a></p>
             </div>
           </div>
-
           <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
             <div>
               <h4>Email</h4>
-              <p><a href="mailto:info@envisage-companies.com">info@envisage-companies.com</a></p>
+              <p><a href="mailto:info@envisagecompanies.com">info@envisagecompanies.com</a></p>
             </div>
           </div>
-
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-globe"></i></div>
-            <div>
-              <h4>Websites</h4>
-              <p><a href="https://envisage-companies.com" target="_blank">envisage-companies.com</a></p>
-              <p><a href="https://claimwrit.com" target="_blank">claimwrit.com</a></p>
-            </div>
-          </div>
-
         </div>
       </div>
-
-      <div class="contact-form fade-in">
-        <h3>Send a Message</h3>
-        <form>
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input id="name" class="form-control" type="text" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input id="email" class="form-control" type="email" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" class="form-control" required></textarea>
-          </div>
-          <button type="submit" class="btn">Send</button>
-        </form>
-      </div>
-
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
+  <footer class="fade-in">
     <div class="container footer-content">
-      <div class="footer-col">
-        <h3>Envisage Companies, LLC</h3>
-        <p>
-          Premium administrative support for Commercial Contractors,
-          C-Suite Executives, and Personal Injury Law Firms.
-        </p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h3>Quick Links</h3>
-        <ul class="footer-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#industries">Industries</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3>Contact Info</h3>
-        <ul class="footer-links">
-          <li><i class="fas fa-phone"></i> 954-408-1937</li>
-          <li><i class="fas fa-envelope"></i> info@envisage-companies.com</li>
-          <li><i class="fas fa-globe"></i> envisage-companies.com</li>
-          <li><i class="fas fa-globe"></i> claimwrit.com</li>
-        </ul>
-      </div>
+      <!-- footer columns -->
     </div>
-    <div class="copyright">
-      &copy; 2025 Envisage Companies, LLC. All Rights Reserved.
-    </div>
+    <p class="copyright">&copy; 2025 Envisage Companies, LLC. All rights reserved.</p>
   </footer>
 
-  <script>
-    // fade-in on scroll
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOnScroll = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('appear');
-          appearOnScroll.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    faders.forEach(el => appearOnScroll.observe(el));
-  </script>
-
+  <script src="js/scripts.js"></script>
 </body>
 </html>
