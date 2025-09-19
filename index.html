@@ -14,8 +14,16 @@
     rel="stylesheet"
   />
 </head>
-<body>
-  <div align="center"><a href="#home" class=
+<body id="home">
+
+  <!-- LOGO HEADER -->
+  <div class="logo-header" style="text-align:center; padding:20px;">
+    <img src="envisage-logo.jpg" alt="Envisage Companies Logo" style="max-width:120px; height:auto;" />
+    <h1 style="margin-top:10px; font-family:'Montserrat', sans-serif; font-size:1.8rem; color:#333;">
+      Envisage Companies, LLC
+    </h1>
+  </div>
+
   <!-- GLOBAL TOP NAV -->
   <header class="main-nav">
     <nav class="container nav-bar">
@@ -29,34 +37,6 @@
       </ul>
     </nav>
   </header>
-
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="container logo-hero">
-      <img
-        src="images/envisage-logo.jpg"
-        alt="Envisage Companies, LLC"
-        class="logo-big"
-      />
-      <h1 class="company-title white">Envisage Companies, LLC</h1>
-    </div>
-
-    <div class="container hero-content">
-      <h2>
-        Professional <span class="highlight">Administrative Support</span>
-        for Your Business
-      </h2>
-      <p>
-        Envisage Companies LLC provides premium administrative solutions for
-        Commercial Contractors, C-suite Executives, and Personal Injury Law
-        Firms. Let us handle the details so you can focus on growth.
-      </p>
-      <div class="hero-buttons">
-        <a href="#services" class="btn">Our Services</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
-      </div>
-    </div>
-  </section>
 
   <!-- SERVICES -->
   <section id="services" class="services">
@@ -314,7 +294,7 @@
             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
             <div>
               <h4>Email</h4>
-              <p><a href="/cdn-cgi/l/email-protection#147d7a727b54717a627d6775737139777b7964757a7d71673a777b79"><span class="__cf_email__" data-cfemail="761f181019361318001f051711135b15191b0617181f13055815191b">[email&#160;protected]</span></a></p>
+              <p><a href="mailto:info@envisage-companies.com">info@envisage-companies.com</a></p>
             </div>
           </div>
 
@@ -329,28 +309,8 @@
 
         </div>
       </div>
-<!--
-      <div class="contact-form fade-in">
-        <h3>Send a Message</h3>
-        <form>
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input id="name" class="form-control" type="text" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input id="email" class="form-control" type="email" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" class="form-control" required></textarea>
-          </div>
-          <button type="submit" class="btn">Send</button>
-        </form>
-      </div>
--->
-    </div>
 
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -362,11 +322,6 @@
           Premium administrative support for Commercial Contractors,
           C-Suite Executives, and Personal Injury Law Firms.
         </p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
       </div>
       <div class="footer-col">
         <h3>Quick Links</h3>
@@ -383,7 +338,7 @@
         <h3>Contact Info</h3>
         <ul class="footer-links">
           <li><i class="fas fa-phone"></i> 954-408-1937</li>
-          <li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="335a5d555c73565d455a405254561e505c5e43525d5a56401d505c5e">[email&#160;protected]</a></li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:info@envisage-companies.com">info@envisage-companies.com</a></li>
           <li><i class="fas fa-globe"></i> envisage-companies.com</li>
           <li><i class="fas fa-globe"></i> claimwrit.com</li>
         </ul>
@@ -394,7 +349,7 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     // fade-in on scroll
     const faders = document.querySelectorAll('.fade-in');
     const appearOnScroll = new IntersectionObserver(entries => {
@@ -408,6 +363,6 @@
     faders.forEach(el => appearOnScroll.observe(el));
   </script>
 
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"95ba5c739928dbc2","version":"2025.6.2","r":1,"token":"423088c2560f453daf1b12e9e0028c43","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
 </body>
 </html>
+
