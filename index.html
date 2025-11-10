@@ -4,31 +4,605 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Envisage Companies, LLC | Administrative Support Specialists</title>
-  <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #1a5276;
+      --secondary: #2e86c1;
+      --accent: #3498db;
+      --light: #f8f9fa;
+      --dark: #333;
+      --gray: #6c757d;
+      --shadow: 0 5px 15px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Header & Navigation */
+    .logo-header {
+      text-align: center;
+      padding: 20px;
+      background: var(--light);
+      box-shadow: var(--shadow);
+    }
+
+    .logo-header img {
+      max-width: 120px;
+      height: auto;
+      transition: var(--transition);
+    }
+
+    .logo-header h1 {
+      margin-top: 10px;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+
+    .main-nav {
+      position: sticky;
+      top: 0;
+      background: white;
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin: 0 10px;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 20px 15px;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* Services Section */
+    .services {
+      padding: 80px 0;
+      background: var(--light);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      color: var(--gray);
+    }
+
+    .service-card a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* Industries Section */
+    .industries {
+      padding: 80px 0;
+    }
+
+    .industry-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .industry-card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .industry-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .industry-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      transition: var(--transition);
+    }
+
+    .industry-card:hover .industry-img {
+      transform: scale(1.05);
+    }
+
+    .industry-content {
+      padding: 25px;
+      background: white;
+    }
+
+    .industry-content h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    /* Process Section */
+    .process {
+      padding: 80px 0;
+      background: var(--light);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 30px 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .step:hover {
+      transform: translateY(-5px);
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-number::after {
+      content: '';
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: rgba(52, 152, 219, 0.2);
+      z-index: -1;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      padding: 80px 0;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      font-size: 4rem;
+      color: var(--accent);
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      opacity: 0.3;
+    }
+
+    .testimonial-content {
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .client-info {
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+    }
+
+    .client-info h4 {
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 80px 0;
+      background: var(--light);
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-info h3 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .contact-details {
+      margin-top: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 25px;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    .contact-item h4 {
+      margin-bottom: 5px;
+    }
+
+    .map-embed {
+      margin: 25px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn:hover {
+      background: var(--secondary);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 60px 0 0;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h3 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+
+    .footer-links i {
+      margin-right: 10px;
+      color: var(--accent);
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .nav-links li {
+        margin: 5px 0;
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+    }
+  </style>
 </head>
 <body id="home">
 
+  <!-- Back to Top Button -->
+  <a href="#home" class="back-to-top">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
   <!-- LOGO HEADER -->
-  <div class="logo-header" style="text-align:center; padding:20px;">
-    <img src="envisage-logo.jpg" alt="Envisage Companies Logo" style="max-width:120px; height:auto;" />
-    <h1 style="margin-top:10px; font-family:'Montserrat', sans-serif; font-size:1.8rem; color:#333;">
-      Envisage Companies, LLC
-    </h1>
+  <div class="logo-header">
+    <img src="envisage-logo.jpg" alt="Envisage Companies Logo" />
+    <h1>Envisage Companies, LLC</h1>
   </div>
 
   <!-- GLOBAL TOP NAV -->
   <header class="main-nav">
     <nav class="container nav-bar">
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
+        <li><a href="#home" class="active">Home</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#industries">Industries</a></li>
         <li><a href="#process">Process</a></li>
@@ -159,9 +733,9 @@
   <section id="process" class="process">
     <div class="container">
       <div class="section-title"><h2>Our Process</h2></div>
-      <div class="process-steps fade-in">
+      <div class="process-steps">
 
-        <div class="step">
+        <div class="step fade-in">
           <div class="step-number">1</div>
           <h3>Consultation</h3>
           <p>
@@ -170,7 +744,7 @@
           </p>
         </div>
 
-        <div class="step">
+        <div class="step fade-in">
           <div class="step-number">2</div>
           <h3>Customization</h3>
           <p>
@@ -179,7 +753,7 @@
           </p>
         </div>
 
-        <div class="step">
+        <div class="step fade-in">
           <div class="step-number">3</div>
           <h3>Implementation</h3>
           <p>
@@ -188,7 +762,7 @@
           </p>
         </div>
 
-        <div class="step">
+        <div class="step fade-in">
           <div class="step-number">4</div>
           <h3>Optimization</h3>
           <p>
@@ -254,7 +828,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="contact" align="center">
+  <section id="contact" class="contact">
     <div class="container contact-container">
 
       <div class="contact-info fade-in">
@@ -310,6 +884,41 @@
         </div>
       </div>
 
+      <div class="contact-form fade-in">
+        <h3>Send Us a Message</h3>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="service">Service Interested In</label>
+            <select id="service" class="form-control">
+              <option value="">Select a service</option>
+              <option value="personal-injury">Personal Injury Support</option>
+              <option value="construction">Construction Administration</option>
+              <option value="executive">Executive-Level Support</option>
+              <option value="project">Project Coordination</option>
+              <option value="communication">Client Communication</option>
+              <option value="reporting">Reporting & Analysis</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" class="form-control" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+
     </div>
   </section>
 
@@ -350,6 +959,57 @@
   </footer>
 
   <script>
+    // Navigation active state
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (scrollY >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Back to top button
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.add('active');
+      } else {
+        backToTopButton.classList.remove('active');
+      }
+    });
+
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      // In a real implementation, you would send this data to a server
+      alert(`Thank you, ${name}! Your message has been received. We'll get back to you soon.`);
+      contactForm.reset();
+    });
+
     // fade-in on scroll
     const faders = document.querySelectorAll('.fade-in');
     const appearOnScroll = new IntersectionObserver(entries => {
@@ -360,9 +1020,9 @@
         }
       });
     }, { threshold: 0.3 });
+    
     faders.forEach(el => appearOnScroll.observe(el));
   </script>
 
 </body>
 </html>
-
