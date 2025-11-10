@@ -6,11 +6,13 @@
   <title>Envisage Companies, LLC | Administrative Support Specialists</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <style>
     :root {
       --primary: #1a5276;
       --secondary: #2e86c1;
       --accent: #3498db;
+      --highlight: #e67e22;
       --light: #f8f9fa;
       --dark: #333;
       --gray: #6c757d;
@@ -30,7 +32,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
+      line-height: 1.8;
       color: var(--dark);
       overflow-x: hidden;
     }
@@ -39,6 +41,7 @@
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
       margin-bottom: 1rem;
+      letter-spacing: 0.5px;
     }
 
     .container {
@@ -46,409 +49,6 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 15px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-title h2 {
-      font-size: 2.5rem;
-      color: var(--primary);
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
-
-    /* Header & Navigation */
-    .logo-header {
-      text-align: center;
-      padding: 20px;
-      background: var(--light);
-      box-shadow: var(--shadow);
-    }
-
-    .logo-header img {
-      max-width: 120px;
-      height: auto;
-      transition: var(--transition);
-    }
-
-    .logo-header h1 {
-      margin-top: 10px;
-      font-size: 1.8rem;
-      color: var(--primary);
-    }
-
-    .main-nav {
-      position: sticky;
-      top: 0;
-      background: white;
-      box-shadow: var(--shadow);
-      z-index: 1000;
-      transition: var(--transition);
-    }
-
-    .nav-bar {
-      display: flex;
-      justify-content: center;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-    }
-
-    .nav-links li {
-      margin: 0 10px;
-    }
-
-    .nav-links a {
-      display: block;
-      padding: 20px 15px;
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 500;
-      transition: var(--transition);
-      position: relative;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--primary);
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background: var(--accent);
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    /* Services Section */
-    .services {
-      padding: 80px 0;
-      background: var(--light);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .service-card {
-      background: white;
-      border-radius: 10px;
-      padding: 30px;
-      text-align: center;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: var(--transition);
-    }
-
-    .service-card:hover {
-      transform: translateY(-10px);
-    }
-
-    .service-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .service-icon {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 20px;
-    }
-
-    .service-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-    }
-
-    .service-card p {
-      color: var(--gray);
-    }
-
-    .service-card a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    /* Industries Section */
-    .industries {
-      padding: 80px 0;
-    }
-
-    .industry-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .industry-card {
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-    }
-
-    .industry-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .industry-img {
-      height: 200px;
-      background-size: cover;
-      background-position: center;
-      transition: var(--transition);
-    }
-
-    .industry-card:hover .industry-img {
-      transform: scale(1.05);
-    }
-
-    .industry-content {
-      padding: 25px;
-      background: white;
-    }
-
-    .industry-content h3 {
-      font-size: 1.5rem;
-      color: var(--primary);
-    }
-
-    /* Process Section */
-    .process {
-      padding: 80px 0;
-      background: var(--light);
-    }
-
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .step {
-      text-align: center;
-      padding: 30px 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      position: relative;
-    }
-
-    .step:hover {
-      transform: translateY(-5px);
-    }
-
-    .step-number {
-      width: 60px;
-      height: 60px;
-      background: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin: 0 auto 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .step-number::after {
-      content: '';
-      position: absolute;
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      background: rgba(52, 152, 219, 0.2);
-      z-index: -1;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(1.5); opacity: 0; }
-    }
-
-    /* Testimonials Section */
-    .testimonials {
-      padding: 80px 0;
-    }
-
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .testimonial-card {
-      background: white;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      position: relative;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .testimonial-card::before {
-      content: '\201C';
-      font-size: 4rem;
-      color: var(--accent);
-      position: absolute;
-      top: 10px;
-      left: 20px;
-      opacity: 0.3;
-    }
-
-    .testimonial-content {
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .client-info {
-      border-top: 1px solid #eee;
-      padding-top: 15px;
-    }
-
-    .client-info h4 {
-      color: var(--primary);
-      margin-bottom: 5px;
-    }
-
-    /* Contact Section */
-    .contact {
-      padding: 80px 0;
-      background: var(--light);
-    }
-
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-    }
-
-    .contact-info h3 {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 20px;
-    }
-
-    .contact-details {
-      margin-top: 30px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 25px;
-    }
-
-    .contact-icon {
-      width: 50px;
-      height: 50px;
-      background: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 15px;
-      flex-shrink: 0;
-    }
-
-    .contact-item h4 {
-      margin-bottom: 5px;
-    }
-
-    .map-embed {
-      margin: 25px 0;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-form {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-family: 'Poppins', sans-serif;
-      transition: var(--transition);
-    }
-
-    .form-control:focus {
-      border-color: var(--accent);
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-    }
-
-    textarea.form-control {
-      min-height: 150px;
-      resize: vertical;
     }
 
     .btn {
@@ -462,6 +62,7 @@
       font-weight: 500;
       cursor: pointer;
       transition: var(--transition);
+      text-decoration: none;
     }
 
     .btn:hover {
@@ -470,118 +71,51 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
-    /* Footer */
-    footer {
-      background: var(--dark);
+    .hero {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
       color: white;
-      padding: 60px 0 0;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-
-    .footer-col h3 {
-      color: white;
-      margin-bottom: 20px;
-      font-size: 1.3rem;
-    }
-
-    .footer-links {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 10px;
-    }
-
-    .footer-links a {
-      color: #ccc;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-
-    .footer-links a:hover {
-      color: white;
-      padding-left: 5px;
-    }
-
-    .footer-links i {
-      margin-right: 10px;
-      color: var(--accent);
-    }
-
-    .copyright {
+      padding: 100px 0;
       text-align: center;
-      padding: 20px 0;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      color: #aaa;
-      font-size: 0.9rem;
     }
 
-    /* Animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+    .hero-content h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
     }
 
-    .fade-in.appear {
-      opacity: 1;
-      transform: translateY(0);
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
     }
 
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      .nav-links {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .nav-links li {
-        margin: 5px 0;
-      }
-      
-      .contact-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .section-title h2 {
-        font-size: 2rem;
-      }
-    }
-
-    /* Back to Top Button */
-    .back-to-top {
+    .sticky-cta {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      background: var(--primary);
+      bottom: 20px;
+      right: 20px;
+      background: var(--highlight);
       color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      z-index: 1000;
+      display: none;
       text-decoration: none;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      z-index: 999;
     }
 
-    .back-to-top.active {
-      opacity: 1;
-      visibility: visible;
+    @media (max-width: 768px) {
+      .sticky-cta {
+        display: block;
+      }
     }
 
-    .back-to-top:hover {
-      background: var(--secondary);
-      transform: translateY(-5px);
+    .swiper {
+      padding-bottom: 40px;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
     }
   </style>
 </head>
@@ -591,6 +125,18 @@
   <a href="#home" class="back-to-top">
     <i class="fas fa-chevron-up"></i>
   </a>
+
+  <!-- Sticky CTA Button (Mobile Only) -->
+  <a href="#contact" class="sticky-cta">📞 Schedule</a>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Strategic Administrative Support That Moves Business Forward</h1>
+      <p>From demand letters to executive logistics—Envisage delivers precision, discretion, and results.</p>
+      <a href="#contact" class="btn">Schedule a Consultation</a>
+    </div>
+  </section>
 
   <!-- LOGO HEADER -->
   <div class="logo-header">
@@ -611,7 +157,6 @@
       </ul>
     </nav>
   </header>
-
   <!-- SERVICES -->
   <section id="services" class="services">
     <div class="container">
@@ -621,7 +166,7 @@
       <div class="services-grid">
 
         <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-file-medical-alt"></i></div>
+          <div class="service-icon"><i class="fas fa-file-medical-alt" aria-label="Personal Injury Support"></i></div>
           <h3>Personal Injury Support</h3>
           <p>
             Medical chronologies, demand letter prep, billing & lien reductions,
@@ -632,7 +177,7 @@
         </div>
 
         <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+          <div class="service-icon"><i class="fas fa-hard-hat" aria-label="Construction Administration"></i></div>
           <h3>Construction Administration</h3>
           <p>
             From pre-construction planning to subcontractor/vendor coordination,
@@ -642,7 +187,7 @@
         </div>
 
         <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+          <div class="service-icon"><i class="fas fa-user-tie" aria-label="Executive-Level Support"></i></div>
           <h3>Executive-Level Support</h3>
           <p>
             Discreet, strategic support to C-suite—complex scheduling, travel,
@@ -652,7 +197,7 @@
         </div>
 
         <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-tasks"></i></div>
+          <div class="service-icon"><i class="fas fa-tasks" aria-label="Project Coordination"></i></div>
           <h3>Project Coordination</h3>
           <p>
             End-to-end coordination across legal, construction, and executive
@@ -662,7 +207,7 @@
         </div>
 
         <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-comments-dollar"></i></div>
+          <div class="service-icon"><i class="fas fa-comments-dollar" aria-label="Client Communication"></i></div>
           <h3>Client Communication</h3>
           <p>
             Professional email triage & phone correspondence to maintain client
@@ -671,7 +216,7 @@
         </div>
 
         <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="service-icon"><i class="fas fa-chart-line" aria-label="Reporting & Analysis"></i></div>
           <h3>Reporting & Analysis</h3>
           <p>
             Custom reports, status summaries, and insights to support
@@ -773,56 +318,58 @@
       </div>
     </div>
   </section>
-
   <!-- TESTIMONIALS -->
   <section id="testimonials" class="testimonials">
     <div class="container">
       <div class="section-title"><h2>What Clients Say</h2></div>
-      <div class="testimonial-grid">
+      <div class="swiper testimonial-carousel">
+        <div class="swiper-wrapper">
 
-        <div class="testimonial-card fade-in">
-          <div class="testimonial-content">
-            <p>
-              "Envisage Companies has been an indispensable extension of our
-              legal team since 2020. Their precision, professionalism, and
-              commitment to excellence directly support our settlements."
-            </p>
+          <div class="swiper-slide testimonial-card fade-in">
+            <div class="testimonial-content">
+              <p>
+                "Envisage Companies has been an indispensable extension of our
+                legal team since 2020. Their precision, professionalism, and
+                commitment to excellence directly support our settlements."
+              </p>
+            </div>
+            <div class="client-info">
+              <h4>Ian Seitel, Esq.</h4>
+              <p>Attorney, Seitel Law Office</p>
+            </div>
           </div>
-          <div class="client-info">
-            <h4>Ian Seitel, Esq.</h4>
-            <p>Attorney, Seitel Law Office</p>
+
+          <div class="swiper-slide testimonial-card fade-in">
+            <div class="testimonial-content">
+              <p>
+                "Joanna ran point on logistics, executive support, and
+                communication across a $1.8B organization with over 10,000
+                employees. Her ability to manage complexity while maintaining
+                discretion made her truly irreplaceable."
+              </p>
+            </div>
+            <div class="client-info">
+              <h4>David Bywater</h4>
+              <p>Former COO, Xerox State & Local Solutions</p>
+            </div>
           </div>
+
+          <div class="swiper-slide testimonial-card fade-in">
+            <div class="testimonial-content">
+              <p>
+                "Partnering with Envisage allowed our construction team to
+                exceed expectations—delivering ahead of schedule and under
+                budget. Their coordination was instrumental to our ROI success."
+              </p>
+            </div>
+            <div class="client-info">
+              <h4>Michael Jackson</h4>
+              <p>VP of Construction, The LaPorte Group</p>
+            </div>
+          </div>
+
         </div>
-
-        <div class="testimonial-card fade-in">
-          <div class="testimonial-content">
-            <p>
-              "Joanna ran point on logistics, executive support, and
-              communication across a $1.8B organization with over 10,000
-              employees. Her ability to manage complexity while maintaining
-              discretion made her truly irreplaceable."
-            </p>
-          </div>
-          <div class="client-info">
-            <h4>David Bywater</h4>
-            <p>Former COO, Xerox State & Local Solutions</p>
-          </div>
-        </div>
-
-        <div class="testimonial-card fade-in">
-          <div class="testimonial-content">
-            <p>
-              "Partnering with Envisage allowed our construction team to
-              exceed expectations—delivering ahead of schedule and under
-              budget. Their coordination was instrumental to our ROI success."
-            </p>
-          </div>
-          <div class="client-info">
-            <h4>Michael Jackson</h4>
-            <p>VP of Construction, The LaPorte Group</p>
-          </div>
-        </div>
-
+        <div class="swiper-pagination"></div>
       </div>
     </div>
   </section>
@@ -840,7 +387,6 @@
         </p>
 
         <div class="contact-details">
-
           <div class="contact-item">
             <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
             <div>
@@ -880,7 +426,6 @@
               <p><a href="https://claimwrit.com" target="_blank">claimwrit.com</a></p>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -958,6 +503,8 @@
     </div>
   </footer>
 
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
     // Navigation active state
     const sections = document.querySelectorAll('section');
@@ -965,16 +512,12 @@
 
     window.addEventListener('scroll', () => {
       let current = '';
-      
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
         if (scrollY >= (sectionTop - 200)) {
           current = section.getAttribute('id');
         }
       });
-
       navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
@@ -985,7 +528,9 @@
 
     // Back to top button
     const backToTopButton = document.querySelector('.back-to-top');
-
+    window.addEventListener('scroll', ()
+    // Back to top button
+    const backToTopButton = document.querySelector('.back-to-top');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
         backToTopButton.classList.add('active');
@@ -994,23 +539,16 @@
       }
     });
 
-    // Form submission
+    // Contact form submission
     const contactForm = document.getElementById('contactForm');
-    
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
-      // Get form values
       const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-      
-      // In a real implementation, you would send this data to a server
       alert(`Thank you, ${name}! Your message has been received. We'll get back to you soon.`);
       contactForm.reset();
     });
 
-    // fade-in on scroll
+    // Fade-in on scroll
     const faders = document.querySelectorAll('.fade-in');
     const appearOnScroll = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -1020,9 +558,14 @@
         }
       });
     }, { threshold: 0.3 });
-    
     faders.forEach(el => appearOnScroll.observe(el));
-  </script>
 
+    // Swiper testimonial carousel
+    new Swiper('.testimonial-carousel', {
+      loop: true,
+      autoplay: { delay: 5000 },
+      pagination: { el: '.swiper-pagination', clickable: true },
+    });
+  </script>
 </body>
 </html>
