@@ -72,12 +72,13 @@
       border-radius: 2px;
     }
 
-    /* Header & Navigation */
+    /* Header & Navigation - FIXED */
     .logo-header {
       text-align: center;
       padding: 20px;
       background: var(--light);
       box-shadow: var(--shadow);
+      cursor: pointer;
     }
 
     .logo-header img {
@@ -109,20 +110,22 @@
     .nav-links {
       display: flex;
       list-style: none;
+      gap: 0;
     }
 
     .nav-links li {
-      margin: 0 10px;
+      margin: 0;
     }
 
     .nav-links a {
       display: block;
-      padding: 20px 15px;
+      padding: 20px 20px;
       text-decoration: none;
       color: var(--dark);
       font-weight: 500;
       transition: var(--transition);
       position: relative;
+      white-space: nowrap;
     }
 
     .nav-links a:hover,
@@ -144,6 +147,17 @@
     .nav-links a:hover::after,
     .nav-links a.active::after {
       width: 100%;
+    }
+
+    /* Mobile Navigation */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark);
+      padding: 10px;
     }
 
     /* Services Section */
@@ -534,17 +548,55 @@
       transform: translateY(0);
     }
 
-    /* Mobile Responsiveness */
+    /* Mobile Responsiveness - FIXED */
     @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+      }
+
+      .nav-bar {
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+      }
+
       .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: white;
         flex-direction: column;
-        text-align: center;
+        padding: 80px 20px 20px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: var(--transition);
+        z-index: 999;
       }
-      
+
+      .nav-links.active {
+        right: 0;
+      }
+
       .nav-links li {
-        margin: 5px 0;
+        margin: 0;
+        width: 100%;
       }
-      
+
+      .nav-links a {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        text-align: left;
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
       .contact-container {
         grid-template-columns: 1fr;
       }
@@ -583,6 +635,22 @@
       background: var(--secondary);
       transform: translateY(-5px);
     }
+
+    /* Overlay for mobile menu */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 998;
+    }
+
+    .overlay.active {
+      display: block;
+    }
   </style>
 </head>
 <body id="home">
@@ -593,17 +661,20 @@
   </a>
 
   <!-- LOGO HEADER -->
-  <div class="logo-header">
+  <div class="logo-header" onclick="scrollToTop()">
     <img src="envisage-logo.jpg" alt="Envisage Companies Logo" />
     <h1>Envisage Companies, LLC</h1>
   </div>
 
-  <!-- GLOBAL TOP NAV -->
+  <!-- GLOBAL TOP NAV - HOME TAB REMOVED -->
   <header class="main-nav">
     <nav class="container nav-bar">
-      <ul class="nav-links">
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#services">Services</a></li>
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <!-- Home tab removed -->
+        <li><a href="#services" class="active">Services</a></li>
         <li><a href="#industries">Industries</a></li>
         <li><a href="#process">Process</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
@@ -611,6 +682,9 @@
       </ul>
     </nav>
   </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="overlay" id="overlay"></div>
 
   <!-- SERVICES -->
   <section id="services" class="services">
@@ -935,7 +1009,7 @@
       <div class="footer-col">
         <h3>Quick Links</h3>
         <ul class="footer-links">
-          <li><a href="#home">Home</a></li>
+          <!-- Home link removed from footer too -->
           <li><a href="#services">Services</a></li>
           <li><a href="#industries">Industries</a></li>
           <li><a href="#process">Process</a></li>
@@ -959,9 +1033,43 @@
   </footer>
 
   <script>
+    // Scroll to top function for logo click
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const overlay = document.getElementById('overlay');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+
+    overlay.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
     // Navigation active state
     const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const navLinksAll = document.querySelectorAll('.nav-links a');
 
     window.addEventListener('scroll', () => {
       let current = '';
@@ -975,7 +1083,7 @@
         }
       });
 
-      navLinks.forEach(link => {
+      navLinksAll.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
           link.classList.add('active');
