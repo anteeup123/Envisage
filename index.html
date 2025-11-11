@@ -642,6 +642,21 @@
     .overlay.active {
       display: block;
     }
+
+/* Service card images */
+.services .service-media {
+  margin-bottom: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.services .service-media img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
   </style>
 </head>
 <body id="home">
@@ -677,76 +692,89 @@
   <!-- Mobile Menu Overlay -->
   <div class="overlay" id="overlay"></div>
 
-  <!-- SERVICES -->
-  <section id="services" class="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>Our Services</h2>
-      </div>
-      <div class="services-grid">
-
-        <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-file-medical-alt"></i></div>
-          <h3>Personal Injury Support</h3>
-          <p>
-            Medical chronologies, demand letter prep, billing & lien reductions,
-            balance verifications, and closing statements—each with legal-tone
-            precision. For on-demand demand letters, visit
-            <a href="https://claimwrit.com" target="_blank">ClaimWrit.com</a>.
-          </p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
-          <h3>Construction Administration</h3>
-          <p>
-            From pre-construction planning to subcontractor/vendor coordination,
-            document control, permit tracking, insurance compliance, and
-            project closeout in commercial construction and land development.
-          </p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-user-tie"></i></div>
-          <h3>Executive-Level Support</h3>
-          <p>
-            Discreet, strategic support to C-suite—complex scheduling, travel,
-            cross-functional reporting, expense reports, and high-stake
-            communications. Trusted by Xerox and other enterprise clients.
-          </p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-tasks"></i></div>
-          <h3>Project Coordination</h3>
-          <p>
-            End-to-end coordination across legal, construction, and executive
-            projects—milestone scheduling, cost tracking, contracts,
-            documentation flow, and cross-team communication.
-          </p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-comments-dollar"></i></div>
-          <h3>Client Communication</h3>
-          <p>
-            Professional email triage & phone correspondence to maintain client
-            relationships—prompt, precise, and always on-brand.
-          </p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-          <h3>Reporting & Analysis</h3>
-          <p>
-            Custom reports, status summaries, and insights to support
-            confident, data-driven decision-making.
-          </p>
-        </div>
-
-      </div>
+<!-- SERVICES -->
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Services</h2>
     </div>
-  </section>
+
+    <div class="services-grid">
+
+      <!-- Personal Injury Support -->
+      <div class="service-card fade-in">
+        <div class="service-media">
+          <img src="images/law-firm.jpg" alt="Personal injury support" loading="lazy">
+        </div>
+        <h3>Personal Injury Support</h3>
+        <p>
+          Medical chronologies, demand letter drafting, billing and lien reductions,
+          balance verifications, and closing statements completed with legal-tone precision
+          and evidence-based clarity. For on-demand demand letters, visit
+          <a href="https://claimwrit.com" target="_blank" rel="noopener">ClaimWrit.com</a>.
+        </p>
+      </div>
+
+      <!-- Construction Administration -->
+      <div class="service-card fade-in">
+        <div class="service-media">
+          <img src="images/construction.jpg" alt="Construction administration" loading="lazy">
+        </div>
+        <h3>Construction Administration</h3>
+        <p>
+          Pre-construction planning through final closeout. Subcontractor and vendor coordination,
+          document control, permit and inspection tracking, cost control, insurance compliance,
+          and development of owner applications for payment in commercial construction and land development.
+        </p>
+      </div>
+
+      <!-- Executive-Level Support -->
+      <div class="service-card fade-in">
+        <div class="service-media">
+          <img src="images/executive.jpg" alt="Executive support" loading="lazy">
+        </div>
+        <h3>Executive-Level Support</h3>
+        <p>
+          Discreet, strategic support to C-suite. Complex scheduling and travel, cross-functional reporting,
+          expense reconciliation, and high-stake executive communications. Trusted by Xerox and other enterprise-level clients.
+        </p>
+      </div>
+
+      <!-- Project Coordination -->
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-tasks"></i></div>
+        <h3>Project Coordination</h3>
+        <p>
+          Domestic and international travel coordination integrated into schedule control. Precise end-to-end
+          coordination that keeps complex workstreams moving forward. Milestones mapped, dependencies aligned,
+          vendors tracked, schedules protected, and change impacts surfaced early so deliverables land on time and on budget.
+        </p>
+      </div>
+
+      <!-- Client Communication -->
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-comments-dollar"></i></div>
+        <h3>Client Communication</h3>
+        <p>
+          Executive-level written communication for attorneys, executives, boards, and government entities.
+          Strategic correspondence, status recaps, brand-aligned messaging, and concise documentation that drives alignment and accelerates decisions.
+        </p>
+      </div>
+
+      <!-- Reporting & Analysis -->
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Reporting &amp; Analysis</h3>
+        <p>
+          Financial accuracy and data integrity at scale. Expense reconciliation, vendor and contract controls,
+          insurance and compliance tracking, cost reporting, audit-ready documentation, and custom Excel-based analysis that supports data-driven decisions.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
   <!-- INDUSTRIES -->
   <section id="industries" class="industries">
